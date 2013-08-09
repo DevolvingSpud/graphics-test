@@ -52,6 +52,10 @@ public class Board extends JPanel implements Runnable {
 		parent = getParent();
 		character = new Ship(10, parent.getWidth()/2, parent.getHeight()/2);	
 		character.setMaxRotation(12);
+		
+		Ship otherShip = new Ship(10, parent.getWidth()/2 + 50, parent.getHeight()/2 + 50);	
+		otherShip.setMaxRotation(45);
+		gameObjects.add(otherShip);
 	}
 	
 	public void addNotify() {
@@ -87,11 +91,11 @@ public class Board extends JPanel implements Runnable {
 	}
 
 	public void cycle() {
-//		for(GameObject gob:gameObjects) {
-//			gob.setX(gob.getX()+1);	
-//			gob.setY(gob.getY()+1);	
-//			gob.setRotation(gob.getRotation()+(float)(Math.PI/72));
-//		}
+		for(GameObject gob:gameObjects) {
+			gob.setX(gob.getX()+1);	
+			gob.setY(gob.getY()+1);	
+			gob.setRotation(gob.getRotation()+5);
+		}
 	}
 	
 	public void run() {
